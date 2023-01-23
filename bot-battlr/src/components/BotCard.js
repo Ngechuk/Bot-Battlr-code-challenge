@@ -1,10 +1,10 @@
 import React from "react";
 
-function Botcard() {
+function BotCard() {
   return (
     <nav>
       
     </nav>
   );
 }
-export default Botcard;
+export default BotCard;
