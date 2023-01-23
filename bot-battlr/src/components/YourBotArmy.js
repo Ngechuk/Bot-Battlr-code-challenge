@@ -1,21 +1,27 @@
 import React from "react";
 import BotCard from "./BotCard";
-
-function yourBotArmy({ collection, clickHandler, deleteHandler }) {
+class YourBotArmy extends React.Component {
   //your bot army code here...
+  handleClick = (e) => {e.preventDefault()}
+  botsRender = (yourBots) => {
+    console.log(yourBots)
+    return yourBots.map(bot => (<BotCard bot={bot} handleClick={this.handleClick}/>))
+  }
 
-  return (
-    <div className="ui segment inverted olive bot-army">
-      <div className="ui five column grid">
-        {"Click on a Bot on the bot collection to enlist it to your army."}
-        <div className="row bot-army-row">
-          {collection.map((bot) => (
-            <BotCard key={bot.id} bot={bot} clickHandler={clickHandler} deleteHandler={deleteHandler} />
-          ))}
+
+  render(){
+    return (
+      <div className="ui segment inverted olive bot-army">
+        <div className="ui five column grid">
+          <div className="row bot-army-row">
+            Your Bot Army
+            {this.botsRender(this.props.yourBots)}
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
-export default yourBotArmy;
+};
+
+export default YourBotArmy;

@@ -1,17 +1,32 @@
 import React from "react";
 import BotCard from "./BotCard";
 
-function BotCollection({ collection, clickHandler, handleDelete }) {
-  // Your code here
-  return (
-    <div className="ui four column grid">
-      {"Bot Collection click on a bot to add it to your army."}
-      <div className="row">
-        {collection.map((bot) => (
-          <BotCard key={bot.id} bot={bot} clickHandler={clickHandler} handleDelete={handleDelete} />
-        ))}
-      </div>
-    </div>
-  );
-}
+class BotCollection extends React.Component {
+  // constructor(props){
+  //   super(props)
+  //   this.state = {bots: this.props.bots}
+  // }
+
+  //your code here
+  botsRender = () => {
+
+    return this.props.bots.map(bot => (
+      <BotCard key={bot.id} bot={bot} handleClick={this.props.handleClick} />))
+  }
+
+
+
+  render(){
+  	return (
+  	  <div className="ui four column grid">
+    		<div className="row">
+    		  Collection of all bots
+          {this.botsRender()}
+    		</div>
+  	  </div>
+  	);
+  }
+
+};
+
 export default BotCollection;
