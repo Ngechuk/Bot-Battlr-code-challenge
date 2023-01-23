@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const BotCard = props => {
   const { bot } = props;
 
@@ -7,13 +8,13 @@ const BotCard = props => {
 
   switch (bot.bot_class) {
     case "Assault":
-      botType = <i className="icon military" />;
+      botType = <i className="military icon" />;
       break;
     case "Defender":
-      botType = <i className="icon shield" />;
+      botType = <i className="shield icon" />;
       break;
     case "Support":
-      botType = <i className="icon ambulance" />;
+      botType = <i className="ambulance icon" />;
       break;
     default:
       botType = <div />;
@@ -46,16 +47,16 @@ const BotCard = props => {
         </div>
         <div className="extra content">
           <span>
-            <i className="icon heartbeat" />
+            <i className="heartbeat icon" />
             {bot.health}
           </span>
 
           <span>
-            <i className="icon lightning" />
+            <i className="lightning icon" />
             {bot.damage}
           </span>
           <span>
-            <i className="icon shield" />
+            <i className="shield icon" />
             {bot.armor}
           </span>
         </div>
@@ -66,3 +67,4 @@ const BotCard = props => {
 };
 
 export default BotCard;
+

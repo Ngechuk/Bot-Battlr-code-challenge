@@ -2,43 +2,31 @@ import React, { useState, useEffect } from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 
-class BotsPage extends React.Component {
-  //start here with your code for step one
-  state = {
-    bots: [],
-    yourBots: []
-   }
+const BotsPage = () => {
+    // state hook to store bots and your bots
+    const [bots, setBots] = useState([]);
+    const [yourBots, setYourBots] = useState([]);
 
-  componentDidMount(){
-    fetch(`https://api.npoint.io/4d510c91649bdcfd2ec3/bots/`)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        bots: data
-      })
-    })
-  }
+    // useEffect hook to fetch bots from API
+    useEffect(() => {
+        fetch(`https://api.npoint.io/4d510c91649bdcfd2ec3/bots/`)
+        .then(res => res.json())
+        .then(data => {
+            setBots(data);
+        });
+    }, []);
 
-  setYourBots = (bot) => {
+    // function to add bots to your bots state
+    const handleClick = (bot) => {
+        setYourBots([...yourBots, bot]);
+    };
 
-    this.setState((prevState)=> {
-      const newBots = prevState.yourBots.push(bot)
-      return {yourbots: newBots}
-    })
-    console.log(this.state.yourBots)
-
-  }
-
-  render() {
     return (
-      <div>
-        <YourBotArmy yourBots={this.state.yourBots} />
-        <BotCollection bots={this.state.bots} handleClick={this.setYourBots}/>
-
-      </div>
+        <div>
+            <YourBotArmy yourBots={yourBots} />
+            <BotCollection bots={bots} handleClick={handleClick} />
+        </div>
     );
-  }
-
 }
 
 export default BotsPage;
