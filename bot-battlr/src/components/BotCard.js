@@ -1,10 +1,10 @@
 import React from "react";
 
-function GifList() {
+function Botcard() {
   return (
     <nav>
       
     </nav>
   );
 }
-export default GifList;
+export default Botcard;
