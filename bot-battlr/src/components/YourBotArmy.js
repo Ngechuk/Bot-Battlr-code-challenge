@@ -1,7 +1,8 @@
 import React from "react";
 import BotCard from "./BotCard";
+
 class YourBotArmy extends React.Component {
-  //your bot army code here...
+  
   handleClick = (e) => {e.preventDefault()}
   botsRender = (yourBots) => {
     console.log(yourBots)
