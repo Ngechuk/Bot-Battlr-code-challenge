@@ -1,6 +1,3 @@
-import React from "react";
-
-
 const BotCard = props => {
   const { bot } = props;
 
@@ -8,13 +5,13 @@ const BotCard = props => {
 
   switch (bot.bot_class) {
     case "Assault":
-      botType = <i className="military icon" />;
+      botType = <i />;
       break;
     case "Defender":
-      botType = <i className="shield icon" />;
+      botType = <i />;
       break;
     case "Support":
-      botType = <i className="ambulance icon" />;
+      botType = <i />;
       break;
     default:
       botType = <div />;
@@ -27,36 +24,35 @@ const BotCard = props => {
   }
 
   return (
-    <div className="ui column" >
+    <div>
       <div
-        className="ui card"
         key={bot.id}
         onClick={handleClick}
       >
-        <div className="image">
+        <div >
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
-        <div className="content">
-          <div className="header">
+        <div>
+          <div>
             {bot.name} {botType}
           </div>
 
-          <div className="meta text-wrap">
+          <div >
             <small>{bot.catchphrase}</small>
           </div>
         </div>
-        <div className="extra content">
+        <div >
           <span>
-            <i className="heartbeat icon" />
+            <i />
             {bot.health}
           </span>
 
           <span>
-            <i className="lightning icon" />
+            <i />
             {bot.damage}
           </span>
           <span>
-            <i className="shield icon" />
+            <i />
             {bot.armor}
           </span>
         </div>
@@ -67,4 +63,3 @@ const BotCard = props => {
 };
 
 export default BotCard;
-
